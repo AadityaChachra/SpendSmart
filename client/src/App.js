@@ -19,7 +19,7 @@ function App() {
   }, []);
 
   async function getTransactions() {
-    const url = 'http://localhost:4000/api/transactions';
+    const url = 'https://spendsmart-backend-d50c.onrender.com/api/transactions';
     try {
       const response = await fetch(url);
       if (!response.ok) {
@@ -33,7 +33,7 @@ function App() {
 
   function addNewTransaction(ev) {
     ev.preventDefault();
-    const url = 'http://localhost:4000/api/transaction';
+    const url = 'https://spendsmart-backend-d50c.onrender.com/api/transaction';
     const savings = parseFloat(name.split(' ')[0]);
 
     fetch(url, {
@@ -66,7 +66,7 @@ function App() {
   }
 
   function deleteTransaction(id) {
-    const url = `http://localhost:4000/api/transaction/${id}`;
+    const url = `https://spendsmart-backend-d50c.onrender.com/api/transaction/${id}`;
     fetch(url, {
       method: 'DELETE',
     })
