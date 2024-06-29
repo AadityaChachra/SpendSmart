@@ -19,7 +19,7 @@ function App() {
   }, []);
 
   async function getTransactions() {
-    const url = process.env.REACT_APP_API_URL + '/transactions';
+    const url = 'http://localhost:4000/api/transactions';
     try {
       const response = await fetch(url);
       if (!response.ok) {
@@ -33,7 +33,7 @@ function App() {
 
   function addNewTransaction(ev) {
     ev.preventDefault();
-    const url = process.env.REACT_APP_API_URL + '/transaction';
+    const url = 'http://localhost:4000/api/transaction';
     const savings = parseFloat(name.split(' ')[0]);
 
     fetch(url, {
@@ -66,7 +66,7 @@ function App() {
   }
 
   function deleteTransaction(id) {
-    const url = `${process.env.REACT_APP_API_URL}/transaction/${id}`;
+    const url = `http://localhost:4000/api/transaction/${id}`;
     fetch(url, {
       method: 'DELETE',
     })

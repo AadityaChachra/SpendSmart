@@ -3,18 +3,11 @@ const cors = require('cors');
 require('dotenv').config();
 const Transaction = require('./models/transaction.js');
 const mongoose = require('mongoose');
-const path = require('path');
 
 const app = express();
 
-
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'build')));
-
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build/index.html'));
-})
 
 app.get('/', (req, res) => {
     res.send('Welcome to SpendSmart server. Head over to /api/test to test if the API is working or not.');
@@ -60,6 +53,7 @@ app.delete('/api/transaction/:id', async (req, res) => {
     }
 });
 
-app.listen({ port: 4000 }, () => {
-    console.log('Server is running on http://localhost:4000');
+const port = 4000;
+app.listen(port, () => {
+    console.log(`Server is listening on http://localhost:${port}`);
 });
