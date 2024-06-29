@@ -5,6 +5,7 @@ const Transaction = require('./models/transaction.js');
 const mongoose = require('mongoose');
 
 const app = express();
+const port = process.env.PORT || 4000;
 
 app.use(cors());
 app.use(express.json());
@@ -53,7 +54,6 @@ app.delete('/api/transaction/:id', async (req, res) => {
     }
 });
 
-const port = 4000;
 app.listen(port, () => {
     console.log(`Server is listening on http://localhost:${port}`);
 });
